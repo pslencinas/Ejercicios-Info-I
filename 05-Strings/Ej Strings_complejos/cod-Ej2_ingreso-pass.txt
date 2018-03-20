@@ -1,0 +1,45 @@
+/* EJERCITACIÓN SOBRE STRINGS
+
+EJERCICIO 2:
+    Realizar un programa que pida ingresar una contraseña.
+    La misma no será visible, y se deberá representar con asteriscos.
+    Se tienen solo tres intentos antes de que el programa finalice con un error.
+    Si la contraseña es correcta se imprime en pantalla como string.
+
+RESOLUCIÓN:
+    Matías Bassi
+    04/06/2014
+*/
+
+#include<stdio.h>
+#include<string.h>
+#include<conio.h>
+
+int main(void)
+{
+    char    pass[10];
+    short   ok=0, cont=0, i;
+
+    do{
+        cont++;
+        printf("\n Ingrese su password: ");
+        for(i=0; i<5; i++)
+        {
+            pass[i]=getch();
+            putchar('*');
+        }
+        pass[i]=0;  // para armar el string debo finalizar la cadena con el NULL(=0)
+        printf("\n\n");
+        if(!strcmp(pass,"admin"))//si el ingreso coincide
+                ok=1;           //con la contraseña
+
+    }while( (!ok) && (cont<3) ); //uso el operador "negador lógico"
+                                //(si OK=0 > falso, entonces: !OK > verdadero)
+    if(ok){
+        printf("\n Su password es: >%s<\n\n",pass);
+    }else{
+        printf("[!]_Password incorrecto. Sistema Bloqueado\n\n");
+    }
+
+    return 0;
+}

@@ -1,0 +1,146 @@
+//101. Se ingresa el Nombre y la fecha de nacimiento de 10 personas. Por medio de una
+//función se debe realizar la carga de la fecha verificando que los valores se
+//encuentren dentro de lo permitido y que no se ingrese un valor posterior a la fecha
+//actual. Terminada la carga permitir la modificación de la fecha a partir del ingreso
+//del nombre. Al finalizar el programa mostrar los datos ingresados ordenados por
+//edad. Realizar una función que permita calcular la edad a partir de la fecha de nacimiento
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <conio.h>
+#include <dos.h>
+
+#define cant 3
+
+
+struct fecha{
+    int dia, mes, anio;
+};
+
+struct info
+{
+  char nombre[50];
+  struct fecha f;
+
+};
+
+
+struct fecha IngresaFecha(void);
+int edad (struct fecha);
+
+int main(void)
+{
+    int i=0,j=0, encontrado=0;
+    struct info datos[cant];
+    char consulta;
+    char nombreAux[50];
+
+    for(i=0;i<cant;i++)
+    {
+        printf("ingrese nombre: ");
+        gets(datos[i].nombre);
+        fflush(stdin);
+        datos[i].f = IngresaFecha();
+        fflush(stdin);
+        printf("\n");
+
+    }
+
+    for(i=0;i<cant;i++){
+        printf("\nNombre: %10s  -  Fecha de nacimiento: %d/%d/%d\n",datos[i].nombre,
+            datos[i].f.dia,datos[i].f.mes,datos[i].f.anio);
+
+    }
+    printf("\n\nNecesita cambiar una fecha?: (s/n)");
+    consulta = getchar();
+    fflush(stdin);
+    while(consulta == 's'){
+        printf("Ingrese nombre: ");
+        gets(nombreAux);
+        fflush(stdin);
+
+        for(i=0;i<cant;i++)
+        {
+            if(strcmp(datos[i].nombre, nombreAux)==0){
+                datos[i].f = IngresaFecha();
+                encontrado = 1;
+                break;
+            }
+        }
+
+        if(encontrado){
+            printf("Fecha Actualizada!!!\n\n");
+            encontrado = 0;
+        }else{
+            printf("Nombre no encontrado!!!\n\n");
+        }
+
+        fflush(stdin);
+
+        printf("Necesita cambiar una fecha?: (s/n)");
+        consulta = getchar();
+        fflush(stdin);
+    }
+
+
+    for(i=0;i<cant;i++)
+        printf("\nNombre: %10s  -  Fecha de nacimiento: %d/%d/%d\n",datos[i].nombre,
+            datos[i].f.dia,datos[i].f.mes,datos[i].f.anio);
+
+
+
+    return 0;
+}
+
+struct fecha IngresaFecha(void){
+
+    struct fecha aux;
+    bool fechaValida = false;
+
+    printf("Ingrese fecha de nacimiento\n");
+
+    while(!fechaValida){
+
+        printf("ingrese dia: ");
+        scanf("%d",&aux.dia);
+
+        if(aux.dia >= 1 && aux.dia <= 31)
+            fechaValida = true;
+        else{
+            fechaValida = false;
+            printf("El dia debe ser un valor numerico entre 1 y 31, ingrese nuevamente. \n\n");
+        }
+    }
+
+    fechaValida = false;
+    while(!fechaValida){
+        printf("ingrese mes: ");
+        scanf("%d",&aux.mes);
+
+        if(aux.mes >= 1 && aux.mes <= 12 )
+            fechaValida = true;
+        else{
+            fechaValida = false;
+            printf("El mes debe ser un valor numerico entre 1 y 12, ingrese nuevamente. \n\n");
+        }
+
+    }
+
+    fechaValida = false;
+    while(!fechaValida){
+        printf("ingrese anio: ");
+        scanf("%d",&aux.anio);
+
+        if(aux.anio < 2014)
+            fechaValida = true;
+        else{
+            fechaValida = false;
+            printf("El anio debe ser un valor numerico menor a 2014, ingrese nuevamente. \n\n");
+        }
+
+    }
+
+    return aux;
+
+}

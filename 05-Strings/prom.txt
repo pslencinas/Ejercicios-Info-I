@@ -1,0 +1,37 @@
+//Carga valores y lista los mayores que el promedio
+//Junio 2014
+
+#include <stdio.h>
+#define CANT 100
+
+int main(void)
+{
+int A[CANT],i=0,k , acum=0,N;
+float prom;
+
+//CARGA DEL VECTOR
+printf("Ingrese dato:\t");
+scanf("%d", &N);
+while(N>=0 && i<CANT)
+{
+    A[i]=N;
+    acum=acum+N;
+    i++;
+    printf("Ingrese dato:\t");
+    scanf("%d", &N);
+}
+if(i>0)
+{
+    prom=(float)acum/i;
+
+    //IMPRESION DEL VECTOR
+    for(k=0; k<i; k++)
+    {
+       if(A[k]>prom)
+          printf("%d\t", A[k]);
+    }
+}
+    else printf("No se ingresaron datos");
+printf("\n\n");
+return 0;
+}

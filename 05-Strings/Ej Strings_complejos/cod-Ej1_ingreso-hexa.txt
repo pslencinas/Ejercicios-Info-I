@@ -1,0 +1,41 @@
+/* EJERCITACIÓN SOBRE STRINGS
+
+EJERCICIO 1:
+    Realizar un programa que permita ingresar un número hexadecimal para ser impreso.
+    Solo se tomaran los como válidos los caracteres permitidos por dicho sistema de numeración.
+
+RESOLUCIÓN:
+    Matías Bassi
+    05/06/2014
+    Este programa evita del ingreso de carateres que no pertenecen a dicho sistema de numeración
+    imprimiendo solo los validos. El string de arma paso a paso, finalizandolo con el caracter nulo
+*/
+#include<conio.h>
+#include<string.h>
+#include<ctype.h>
+#include<stdio.h>
+
+int main(void)
+{
+    char    HEXA[11];
+    short   i=0, ok;
+
+    do{
+        //HEXA[i]=getche();  //** a continuacion reemplazo ingreso indistinto de caracteres
+ /*****/do{                 //*** por un algoritmo selectivo según el sist. de numeración:
+            ok=0;           //** (ENTER)=13  ;  48 >= (NUMEROS) >= 57  ;   65 >= (A-F) >= 70
+            HEXA[i]=toupper(getch());
+            if((HEXA[i]==13)||((HEXA[i]>=48)&&(HEXA[i]<=57))||((HEXA[i]>=65)&&(HEXA[i]<=70)))
+                ok=1;   // En caso de ser alguno de los caracteres permitidos: OK y salgo del bucle
+ /*****/}while(!ok);
+        putchar(HEXA[i]);
+
+    }while(HEXA[i++]!=13);  //Termino el ingreso de caracteres con el ENTER (13y10)
+
+    HEXA[--i]=0;            //Reemplazo el ENTER por el NULL
+    putchar(10); putchar(13);
+
+    printf("\n- El nro ingresado es: %s\n\n",HEXA);
+
+    return 0;
+}

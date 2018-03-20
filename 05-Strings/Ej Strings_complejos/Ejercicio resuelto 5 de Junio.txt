@@ -1,0 +1,65 @@
+/*  CONSIGNA:
+	Cargar una lista de personas con sus datos: Nombre, Edad y Sueldo. Luego ordenarla
+
+Con este ejercicio se pretende mostrar como se vuelve pesado el algoritmo de ordenamiento, cuando se tienen
+varios vectores relacionados entre sí. En la próxima clase se verá una solución a esta problemática.
+*/
+
+#include <stdio.h>
+
+#define N 5
+int main( void)
+{
+
+    char dato[N][50], datoAux[50];
+    int i, j, edad[N], edadAux, sueldo[N], sueldoAux;
+
+    for(i=0; i<N; i++){
+
+        printf("Ingrese Nombre: ");
+        gets(dato[i]);
+        fflush(stdin);
+        printf("Ingrese edad: ");
+        scanf("%d", &edad[i]);
+        //fflush(stdin);
+        printf("Ingrese Sueldo: ");
+        scanf("%d", &sueldo[i]);
+        fflush(stdin);
+        printf("\n");
+
+    }
+
+
+    for(i=0; i<N-1; i++){
+        for(j=i+1; j<N; j++){
+
+            if(sueldo[i] < sueldo[j]){
+                sueldoAux = sueldo[i];
+                sueldo[i] = sueldo[j];
+                sueldo[j] = sueldoAux;
+
+                edadAux = edad[i];
+                edad[i] = edad[j];
+                edad[j] = edadAux;
+
+                strcpy(datoAux, dato[i]);
+                strcpy(dato[i], dato[j]);
+                strcpy(dato[j], datoAux);
+
+            }
+
+        }
+
+    }
+
+    printf("Nombre y Apellido\t\t Edad\t\t Sueldo\n");
+
+    for(i=0; i<N; i++){
+
+        printf("\n%s \t\t\t\t %d \t\t %d", dato[i], edad[i], sueldo[i]);
+    }
+
+    printf("\n\n");
+
+return 0;
+}

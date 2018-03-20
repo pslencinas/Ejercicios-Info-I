@@ -1,0 +1,97 @@
+/* EJERCITACIÓN SOBRE STRINGS
+
+EJERCICIO 3:
+    Realizar una función que cuente la cantidad de caracteres que hay en un string
+EJERCICIO 5:
+    Se pide una función que pase un string de minúsculas a mayúsculas.
+EJERCICIO 6:
+    Realizar una función para pasar un nro del sist de numeración hexadecimal al decimal
+
+RESOLUCIÓN:
+    Matías Bassi
+    04/06/2014
+*/
+#include<stdio.h>
+#include<string.h>
+#include<conio.h>
+
+//PROTOTIPOS
+void getsHEXA(char*, short);
+char mayuschar(char);
+unsigned short str_longitud (char* );
+unsigned short HEXA_a_DECI (char* );
+
+//PROGRAMA PRINCIPAL
+int main(void)
+{
+    char            HEXADECIMAL[5];
+    unsigned short  DECIMAL, lonMAX=sizeof(HEXADECIMAL);
+
+    puts("Ingrese el valor en sistema hexadecimal");
+    getsHEXA(HEXADECIMAL,lonMAX);
+    DECIMAL = HEXA_a_DECI(HEXADECIMAL); //LLAMADAS
+
+    printf("\n\nValor en decimal: %hu\n\n",DECIMAL);
+
+    return 0;
+}
+
+
+//IMPLEMENTACIONES
+//Ejercicio 3
+unsigned short  str_longitud (char* str)
+{
+    unsigned short j=0;
+
+    while(str[j]>0){
+        j++;
+    }
+
+    return j;
+}
+//Ejercicio 5
+char mayuschar(char CARACTER){
+
+    if( (CARACTER>=97) && (CARACTER<=122) )
+        CARACTER-=32;
+
+    return CARACTER;
+}
+//Ejercicio 6
+unsigned short HEXA_a_DECI (char* HEXA)
+{
+    unsigned short DECI=0, potencia=1, i=str_longitud(HEXA);
+
+    while(i>0)
+    {
+        if(HEXA[i-1]>=65){
+            DECI+=(mayuschar(HEXA[i-1])-55)*potencia;
+        }else{
+            DECI+=(HEXA[i-1]-48)*potencia;
+        }
+        potencia*=16;
+        i--;
+    }
+    return DECI;
+}
+//Ejercicio 1
+void getsHEXA(char*HEXA, short MAX)
+{
+    short   i=0, ok;
+    do{
+        //HEXA[i]=getche();  //** a continuacion reemplazo ingreso indistinto de caracteres
+ /*****/do{                 //*** por un algoritmo selectivo según el sist. de numeración:
+            ok=0;           //** (ENTER)=13  ;  48 >= (NUMEROS) >= 57  ;   65 >= (A-F) >= 70
+            HEXA[i]=mayuschar(getch());
+            if((HEXA[i]==13)||((HEXA[i]>=48)&&(HEXA[i]<=57))||((HEXA[i]>=65)&&(HEXA[i]<=70)))
+                ok=1;   // En caso de ser alguno de los caracteres permitidos: OK y salgo del bucle
+ /*****/}while(!ok);
+        if( i<(MAX-1) )
+            putchar(HEXA[i]);
+
+    }while( (HEXA[i++]!=13) && (i<MAX) );  //Termino el ingreso de caracteres con el ENTER (13y10)
+
+    HEXA[--i]=0;            //Reemplazo el ENTER por el NULL
+
+    return;
+}

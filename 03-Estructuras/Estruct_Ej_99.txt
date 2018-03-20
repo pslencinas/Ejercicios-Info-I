@@ -1,0 +1,67 @@
+// Ej 99
+
+#include<stdio.h>
+#include<string.h>
+
+
+#define cantidad 3
+
+struct info
+{
+char nombre[20];
+int edad;
+};
+
+
+int main(void)
+{
+
+    struct info datos[cantidad], aux;
+    int i, j;
+
+    /* Lazo para la entrada de datos */
+    for(i=0;i<cantidad;i++)
+    {
+        printf("\nIngrese nombre: ");
+        fflush(stdin);
+        gets(datos[i].nombre);
+        printf("Ingrese edad: ");
+        fflush(stdin);
+        scanf("%d", &datos[i].edad);
+
+    }
+
+
+    /* Lazo para la presentación de datos */
+
+    for(i=0;i<cantidad;i++)
+    {
+        printf("\nNombre: %5s\t Edad: %5d",
+        datos[i].nombre, datos[i].edad);
+
+    }
+
+    printf("\n\nRealizando ordenamiento....");
+
+    for (j=1; j<cantidad; j++)
+        for (i=0; i<cantidad-1; i++)
+            if (strcmp(datos[i].nombre, datos[i+1].nombre)>0)
+            {
+                aux=datos[i];
+                datos[i]=datos[i+1];
+                datos[i+1]=aux;
+            }
+
+
+
+    for(i=0;i<cantidad;i++)
+    {
+        printf("\nNombre: %5s\t Edad: %5d",
+        datos[i].nombre, datos[i].edad);
+
+    }
+
+
+    printf("\n\n");
+    return 0;
+}

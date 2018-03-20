@@ -1,0 +1,60 @@
+// 100. Hacer un programa que ingrese por pantalla los datos de personas (Nombre y
+// edad). Se pide mostrar un listado ordenado alfabéticamente de las personas
+// mayores a 25 años. Se ingresan solamente 100 personas
+
+#include<stdio.h>
+#include<string.h>
+#define cantidad 5
+
+struct info_archivo
+{
+char nombre[20];
+int edad;
+
+};
+
+struct info_archivo ARCHIVOS[cantidad], aux;
+int main(void)
+{
+
+int i, j;
+/* Lazo para la entrada de datos */
+
+for(i=0;i<cantidad;i++)
+{
+    printf("\nIngrese nombre: ");
+    fflush(stdin);
+    gets(ARCHIVOS[i].nombre);
+    printf("Ingrese edad: ");
+    fflush(stdin);
+    scanf("%d", &ARCHIVOS[i].edad);
+
+
+}
+
+
+printf("\n\nRealizando ordenamiento....\n\n");
+
+for (j=1; j<cantidad; j++)
+    {
+        for (i=0; i<cantidad-1; i++)
+        {
+            if (strcmp(ARCHIVOS[i].nombre, ARCHIVOS[i+1].nombre) > 0)
+                {
+                aux=ARCHIVOS[i];
+                ARCHIVOS[i]=ARCHIVOS[i+1];
+                ARCHIVOS[i+1]=aux;
+                }
+        }
+    }
+
+for(i=0;i<cantidad;i++)
+{
+    if(ARCHIVOS[i].edad > 25){
+        printf("\nNombre: %5s\t Edad: %5d\t", ARCHIVOS[i].nombre, ARCHIVOS[i].edad);
+    }
+}
+
+printf("\n\n");
+return 0;
+}

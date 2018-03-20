@@ -1,0 +1,96 @@
+#include<stdio.h>
+#define CANTIDAD 3
+#define PROM 2
+
+struct dato
+{
+    char NomApe[51];
+    int edad;
+    int ultimoAno;
+    float promedio[PROM];
+
+};
+
+struct dato ARCHIVOS[CANTIDAD], aux;
+
+
+int main(void)
+{
+
+int i, j, cont=0;
+char auxs[51];
+
+/* Lazo para la entrada de datos */
+
+printf("\nIngrese Nombre y Apellido: ");
+fflush(stdin);
+gets(auxs);
+
+while((cont <1000)  && (strcmp(auxs, "fin")!=0))
+{
+    strcpy(ARCHIVOS[i].NomApe, auxs);
+    printf("Ingrese edad: ");
+    fflush(stdin);
+    scanf("%d", &ARCHIVOS[i].edad);
+    printf("Ingrese ultimo ano: ");
+    fflush(stdin);
+    scanf("%d", &ARCHIVOS[i].ultimoAno);
+
+    for(j=0; j<PROM; j++){
+        printf("Ingrese promedio #%d: ", j);
+        fflush(stdin);
+        scanf("%f", &ARCHIVOS[i].promedio[j]);
+    }
+    cont ++;
+
+    printf("\nIngrese Nombre y Apellido: ");
+    fflush(stdin);
+    gets(auxs);
+
+}
+/* Lazo para la presentación de datos */
+
+for(i=0;i<CANTIDAD;i++)
+{
+    printf("\n\nNombre y Apellido: %15s   Edad: %3d   UltimoAno: %4d",
+    ARCHIVOS[i].NomApe, ARCHIVOS[i].edad, ARCHIVOS[i].ultimoAno);
+
+    printf("\nNotas: ");
+    for(j=0; j<PROM; j++){
+        printf("%4.2f    ", ARCHIVOS[i].promedio[j]);
+    }
+
+}
+
+printf("\n\nRealizando ordenamiento....\n\n");
+
+for (j=0; j<CANTIDAD-1; j++)
+    {
+        for (i=1; i<CANTIDAD; i++)
+        {
+            if (ARCHIVOS[i].ultimoAno < ARCHIVOS[i+1].ultimoAno)
+                {
+                aux=ARCHIVOS[i];
+                ARCHIVOS[i]=ARCHIVOS[i+1];
+                ARCHIVOS[i+1]=aux;
+                }
+        }
+    }
+
+
+
+for(i=0;i<CANTIDAD;i++)
+{
+    printf("\n\nNombre y Apellido: %15s   Edad: %3d   UltimoAno: %4d",
+    ARCHIVOS[i].NomApe, ARCHIVOS[i].edad, ARCHIVOS[i].ultimoAno);
+
+    printf("\nNotas: ");
+    for(j=0; j<PROM; j++){
+        printf("%4.2f    ", ARCHIVOS[i].promedio[j]);
+    }
+
+}
+
+printf("\n\n");
+return 0;
+}

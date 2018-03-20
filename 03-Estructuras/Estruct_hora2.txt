@@ -1,0 +1,69 @@
+#include <stdio.h>
+
+struct Hora_M
+{
+    int H, M, S;
+};
+
+struct Hora_Normal
+{
+    struct Hora_M HM;
+    char tipo;
+};
+
+struct Hora_M cambio_formato(struct Hora_Normal);
+
+int main(void)
+{
+struct Hora_Normal prueba;
+struct Hora_M resultado;
+printf("Bienvenido al conversor de formato de hora\n\n");
+printf("Ingrese hora en formato normal:\n\n");
+printf("Hora:\t");
+scanf("%d", &prueba.HM.H);
+printf("Minutos:\t");
+scanf("%d", &prueba.HM.M);
+printf("Segundos:\t");
+scanf("%d", &prueba.HM.S);
+printf("AM/PM (A o P):\t");
+fflush(stdin);
+scanf("%c", &prueba.tipo);
+printf("\n\nHora antes de convertir");
+printf("\n\n%2d:%2d:%2d %c", prueba.HM.H, prueba.HM.M, prueba.HM.S, prueba.tipo);
+
+
+resultado=cambio_formato(prueba);
+printf("\n\nHora Convertida");
+printf("\n\n%2d:%2d:%2d", resultado.H, resultado.M, resultado.S);
+
+printf("\n");
+return 0;
+
+}
+
+struct Hora_M cambio_formato(struct Hora_Normal X)
+{
+    struct Hora_M Y;
+    Y.S=X.HM.S;
+    Y.M=X.HM.M;
+    if(X.HM.H==12 && X.tipo=='A')
+    {
+        Y.H=0;
+        return Y;
+    }
+    if(X.HM.H>=1 && X.HM.H <=11 && X.tipo=='A')
+    {
+        Y.H=X.HM.H;
+        return Y;
+    }
+    if(X.HM.H>=1 && X.HM.H <=11 && X.tipo=='P')
+    {
+        Y.H=X.HM.H+12;
+        return Y;
+    }
+    if(X.HM.H==12 && X.tipo=='P')
+    {
+        Y.H=12;
+        return Y;
+    }
+}

@@ -1,0 +1,70 @@
+/* EJERCITACIÓN SOBRE STRINGS
+
+EJERCICIO 4:
+    Realizar una función que busque un string dentro de otro y devuelva su posición o -1 si no lo encuentra.
+
+RESOLUCIÓN:
+    Matías Bassi
+    05/06/2014
+    Dicha función recibe 3 parámetros:
+	  > la posición a partir de la que buscar ,
+	  > el puntero constante al string del texto donde se buscará,
+	  > el puntero constante al string del texto buscado;
+    y devuelve la posición donde se ha encontrado dicho string, o (-1) en caso de algún tipo de error.
+*/
+
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+
+signed short strsearch (unsigned short, char*, char*);
+
+int main(void)
+{
+    char            TXTO[151], BUSQ[31];
+    signed short    COMIENZO, RESPUESTA;
+
+    puts("> Ingrese un texto:");
+    gets(TXTO);
+
+    do{
+        puts("> Palabra a buscar:");
+        gets(BUSQ);
+
+        COMIENZO=0;
+        RESPUESTA = strsearch (COMIENZO, TXTO, BUSQ);
+
+        if(RESPUESTA==-1){
+            printf("\nNo se ha encontrado el string '%s'\n",BUSQ);
+        }else{
+            printf("\nSe ha encontrado el string '%s' en la posicion %hd\n",BUSQ,RESPUESTA);
+        }
+        printf("\nDesea buscar otro string? s/n \n\n");
+
+    }while(getch()=='s');
+
+    return 0;
+}
+
+
+signed short strsearch (unsigned short pos, char*texto, char*busqueda)
+{
+    short  largo_txt, largo_bsq ;
+
+    largo_bsq=strlen(busqueda);
+    largo_txt=strlen(texto);
+
+    if(!largo_bsq || !largo_txt){
+            pos=-1;
+    }else{
+            while( (strncmp(busqueda,&(texto[pos]),largo_bsq)) && (pos>=0) && (pos <=largo_txt-largo_bsq) )
+            {
+                if(pos < largo_txt-largo_bsq){
+                    pos++;
+                }else{
+                    pos=-1;
+                }
+            }
+    }
+    return pos;
+}
