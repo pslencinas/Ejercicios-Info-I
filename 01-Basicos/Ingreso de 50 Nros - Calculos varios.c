@@ -1,5 +1,5 @@
 /*
-49. Desarrollar un algoritmo que permita ingresar 50 números naturales, luego informar
+Desarrollar un algoritmo que permita ingresar 50 números naturales, luego informar
 por pantalla:
 a) La sumatoria de los valores múltiplos de 3.
 b) La cantidad de valores múltiplos de 5.

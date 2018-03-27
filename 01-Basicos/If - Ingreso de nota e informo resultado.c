@@ -1,6 +1,4 @@
-// Ejercicio N° 7
 // Ingreso de notas e informo resultado
-// Mayo 2013
 
 #include<stdio.h>
 #include <stdlib.h>

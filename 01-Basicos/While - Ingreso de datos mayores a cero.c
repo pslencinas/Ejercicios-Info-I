@@ -1,5 +1,5 @@
 /*
-51. Desarrollar un programa que permita ingresar números reales mayores que 0 (cero),
+Desarrollar un programa que permita ingresar números reales mayores que 0 (cero),
 finalizar el ingreso cuando no se cumpla esta condición e informar el valor menor y
 el valor mayor del conjunto.
 */

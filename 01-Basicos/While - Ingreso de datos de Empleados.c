@@ -1,7 +1,9 @@
-/*Se registra en un programa los siguientes datos de los empleados de una empresa
+/*
+Se registra en un programa los siguientes datos de los empleados de una empresa
 Número de legajo, sueldo y sexo (1-femenino y 2-masculino). Diseñar un algoritmo
 que permita informar cuantas mujeres ganan más de $500 y cuantos hombres
-ganan menos de $400. Finaliza el ingreso con el numero cero en legajo*/
+ganan menos de $400. Finaliza el ingreso con el numero cero en legajo
+*/
 
 #include <stdio.h>
 int main (void)

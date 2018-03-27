@@ -9,11 +9,11 @@ int main (void)
 	printf(" Ingrese el Precio:");
 	scanf("%d",&A);
 
-  	B = A * 0.21;
-  	C = A + B;
+	B = A * 0.21;
+	C = A + B;
 
-    printf("Precio con Iva Incluido del 21 porciento :%f",C);
-    printf("\n\n");
+  printf("Precio con Iva Incluido del 21 porciento :%f",C);
+  printf("\n\n");
 	return 0;
 
 }

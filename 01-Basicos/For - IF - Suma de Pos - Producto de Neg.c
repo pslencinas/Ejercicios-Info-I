@@ -1,5 +1,6 @@
-// Programa que muestra los multiplos de 5 hasta el 100
-// Informa los valores y la suma
+// Ingresar de 10Nros
+// Informar la suma de los positivos
+// Informar el producto de los negativos
 
 #include <stdio.h>
 #include <stdlib.h>

@@ -10,11 +10,11 @@ int main (void)
 	printf("Ingrese el Precio: ");
 	scanf("%d",&A);
 
-  	B = A * 0.9;
-  	C = A - B;
+	B = A * 0.9;
+	C = A - B;
 
-    printf("Precio con descuento (9%) es :%f",C);
-    printf("\n\n");
+  printf("Precio con descuento (9%) es :%f",C);
+  printf("\n\n");
 	return 0;
 
 }

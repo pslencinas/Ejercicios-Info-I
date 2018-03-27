@@ -1,5 +1,5 @@
 /*
-54. Como resultado de una encuesta se recogen los siguientes datos: edad, sexo y
+Como resultado de una encuesta se recogen los siguientes datos: edad, sexo y
 altura. Se pide realizar un programa que informe el porcentaje de mujeres mayores
 de 25 años, la cantidad de varones menores de 18 años y el porcentaje de
 individuos mayores de 18 años cuya altura supera los 170 cm. Ingresar únicamente
