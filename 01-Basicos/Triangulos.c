@@ -11,16 +11,18 @@ int main(void)
     scanf("%d", &C);
 
     if(A==B)
-        if(B==C)
+        if(A==C)
             printf("EQUILATERO");
         else
             printf("ISOSCELES");
-    else if(B==C)
+    else 
+        if(A==C)
+            printf("ISOSCELES");
+        else 
+            if(B==C)
                 printf("ISOSCELES");
-         else if(C==A)
-                        printf("ISOSCELES");
-              else
-                        printf("ESCALENO");
+            else
+                printf("ESCALENO");
 
     printf("\n\n");
     return 0;
