@@ -1,7 +1,6 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-float SUMA (float, float);
+float SUMA (float, float); //Prototipo de la función
 
 int main(void)
 {
@@ -14,16 +13,14 @@ int main(void)
 
     R = SUMA (A,B);
 
-    printf("El Resultado de la suma es: %.2f", R);
+    printf("El Resultado de la suma es: %.2f\n\n", R);
 
-    printf("\n\n");
-    system("PAUSE");
     return 0;
 }
 
-float SUMA(float A, float PEPE)
+float SUMA(float X, float Y) // A y PEPE son parámetros formales
 {
-    float P;
-    P = A + PEPE;
-    return(P);
+    float Z;
+    Z = X + Y;
+    return Z;
 }
