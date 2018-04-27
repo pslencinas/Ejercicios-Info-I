@@ -38,7 +38,6 @@ int main(void)
         scanf("%f", &X);
         printf("Ingrese valor en Y: ");
         scanf("%f", &Y);
-
     }
 
     printf("\nPuntos en el 1er Cuadrante: %d\n", priCuad);
