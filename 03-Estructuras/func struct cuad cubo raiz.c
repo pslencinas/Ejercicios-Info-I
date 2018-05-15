@@ -33,7 +33,3 @@ struct dato Buscar(float x){
 
     return Resul;
 }
-
-
-
-

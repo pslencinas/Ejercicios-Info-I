@@ -1,7 +1,8 @@
-/* Hacer un algoritmo que se ingresan 100 números enteros, mostrar por pantalla la
+/* Hacer un algoritmo que se ingresan 10 números enteros, mostrar por pantalla la
 cantidad de números pares que se ingresaron*/
 
 #include <stdio.h>
+#define N 10
 int main (void)
 
 {
@@ -9,7 +10,7 @@ int main (void)
 
 	printf("Ingrese 100 numeros enteros\n\n");
 
-	for(i=0; i<100; i++){
+	for(i=0; i<N; i++){
 	    printf("Numero: ");
 	    scanf ("%d",&dato);
 
