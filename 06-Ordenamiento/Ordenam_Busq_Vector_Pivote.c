@@ -3,7 +3,8 @@
 
 int main (void)
 {
-    int vec[N],aux, i=0, j=0;
+    int vec[N],aux, i=0, j=0, aux;
+    char opcion;
 
     for (i=0; i<N; i++)
     {
@@ -24,6 +25,26 @@ int main (void)
 
     for (i=0; i<N; i++)
         printf ("\n V[%d]valor: %d", i, vec[i]);
+
+
+    do{
+        printf("Ingrese un valor a buscar: ");
+        scanf("%d", &aux);
+
+        for(i=0; i<N; i++){
+            if(aux == vec[i]){
+                printf("Valor encontrado!!!");
+                break;
+            }
+        }
+        if(i==N)
+            printf("Valor NO encontrado...");
+
+        printf("Desea seguir buscando valores (s/n): ");
+        fflush(stdin);
+        opcion = getchar();
+        
+    }while(opcion == 's');
 
     printf("\n\n");
     return 0;

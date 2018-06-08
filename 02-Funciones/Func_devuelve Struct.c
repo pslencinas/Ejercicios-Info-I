@@ -1,9 +1,6 @@
 #include<stdio.h>
 #include<math.h>
 
-#define CANTIDAD 3
-#define PROM 2
-
 struct dato
 {
     int cuadrado;

@@ -8,18 +8,15 @@ int main(void)
 
     printf("Ingrese Nro:\t");
     scanf("%d", &NUM);
-    while(NUM!=0 && i<CANT)
-    {
-        if(NUM>0)
-        {
-            POS[p]=NUM;
-            p++;
-        }
-        else
-        {
-            NEG[n]=NUM;
-            n++;
-        }
+    while(NUM!=0 && i<CANT){
+      if(NUM>0){
+          POS[p]=NUM;
+          p++;
+      }
+      else{
+          NEG[n]=NUM;
+          n++;
+      }
       i++;
       printf("Ingrese Nro:\t");
       scanf("%d", &NUM);

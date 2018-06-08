@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<math.h>
 
-struct polar
+struct dato
 {
     float mod;
     float ang;
@@ -33,8 +33,8 @@ int main(void)
 
 struct dato Convertir(float x, float y){
 
-    struct polar Resul;
-	Resul.mod = sqrt(x*x, y*y);
+    struct dato Resul;
+	Resul.mod = sqrt(x*x + y*y);
 	Resul.ang = atan(y/x);
 
     return Resul;
