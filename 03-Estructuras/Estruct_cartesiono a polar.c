@@ -1,17 +1,14 @@
 #include<stdio.h>
 #include<math.h>
 
-struct dato
-{
+struct dato{
     float mod;
     float ang;
 };
-
 struct dato Convertir (float, float);
 
 int main(void)
 {
-
     struct dato X;
     float x, y;
 

@@ -44,6 +44,7 @@ int main(void)
     medio = (inf + sup) / 2;
     
     while(bus_dni != ARCHIVOS[medio].dni && sup>inf){
+        
         if(bus_dni > ARCHIVOS[medio].dni)
             inf = medio + 1;
         else
