@@ -16,11 +16,11 @@ int main (void)
         for (j=i+1; j<N; j++)       //comparaciones
         {
             if (vec[i] > vec[j])
-                {
+            {
                 aux=vec[i];         //swapping
                 vec[i]=vec[j];      //intercambio
                 vec[j]=aux;
-                }
+            }
         }
 
     for (i=0; i<N; i++)
